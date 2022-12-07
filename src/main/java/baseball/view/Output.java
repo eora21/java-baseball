@@ -23,9 +23,7 @@ public class Output {
     public void gameResult(Map<PlayRule, Integer> result) {
         StringJoiner stringJoiner = new StringJoiner(" ");
 
-        result.forEach((playRule, count) -> {
-            stringJoiner.add(String.format("%d%s", count, playRule.getDescription()));
-        });
+        result.forEach((playRule, count) -> stringJoiner.add(String.format("%d%s", count, playRule.getDescription())));
 
         noticeResult(stringJoiner);
     }
