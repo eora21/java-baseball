@@ -27,7 +27,16 @@ public class Output {
             stringJoiner.add(String.format("%d%s", count, playRule.getDescription()));
         });
 
-        notice(stringJoiner.toString());
+        noticeResult(stringJoiner);
+    }
+
+    private void noticeResult(StringJoiner stringJoiner) {
+        if (stringJoiner.length() > 0) {
+            notice(stringJoiner.toString());
+            return;
+        }
+
+        notice(PlayRule.NOTHING.getDescription());
     }
 
     public void gameOver() {
