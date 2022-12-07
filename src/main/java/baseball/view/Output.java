@@ -1,5 +1,6 @@
 package baseball.view;
 
+import baseball.model.ContinueType;
 import baseball.model.NumberRule;
 import baseball.model.PlayRule;
 
@@ -31,5 +32,10 @@ public class Output {
 
     public void gameOver() {
         notice(String.format("%d개의 숫자를 모두 맞히셨습니다! 게임 종료", NumberRule.LENGTH.getValue()));
+    }
+
+    public void wantMore() {
+        notice(String.format("게임을 새로 시작하려면 %d, 종료하려면 %d를 입력하세요.",
+                ContinueType.CONTINUE.getInputValue(), ContinueType.QUIT.getInputValue()));
     }
 }
