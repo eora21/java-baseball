@@ -1,5 +1,6 @@
 package baseball.model;
 
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +14,11 @@ public class Referee {
     public Map<PlayRule, Integer> judge(BaseballNumber randomBaseballNumber, BaseballNumber userBaseballNumber) {
         result = new EnumMap<>(PlayRule.class);
         calculateResult(randomBaseballNumber.getNumbers(), userBaseballNumber.getNumbers());
-        return result;
+        return Collections.unmodifiableMap(result);
+    }
+
+    public boolean isPerfect() {
+        return result.getOrDefault(PlayRule.STRIKE, DEFAULT_VALUE) == NumberRule.LENGTH.getValue();
     }
 
     private void calculateResult(List<Integer> target, List<Integer> userPick) {
