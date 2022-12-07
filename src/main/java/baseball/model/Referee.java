@@ -40,6 +40,6 @@ public class Referee {
     }
 
     private void increaseCount(PlayRule playRule) {
-        result.put(playRule, result.getOrDefault(playRule, DEFAULT_VALUE));
+        result.put(playRule, result.getOrDefault(playRule, DEFAULT_VALUE) + 1);
     }
 }
