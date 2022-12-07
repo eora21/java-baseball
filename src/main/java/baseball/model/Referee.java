@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 public class Referee {
+
+    private static final int DEFAULT_VALUE = 0;
+
     Map<PlayRule, Integer> result;
 
     public Map<PlayRule, Integer> judge(BaseballNumber randomBaseballNumber, BaseballNumber userBaseballNumber) {
@@ -32,6 +35,6 @@ public class Referee {
     }
 
     private void increaseCount(PlayRule playRule) {
-        result.put(playRule, result.get(playRule));
+        result.put(playRule, result.getOrDefault(playRule, DEFAULT_VALUE));
     }
 }
