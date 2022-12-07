@@ -12,6 +12,11 @@ public class Input {
         return validBaseballNumber(input);
     }
 
+    public int wantMoreGame() {
+        String input = Console.readLine();
+        return validNumber(input);
+    }
+
     private List<Integer> validBaseballNumber(String input) {
         List<Integer> baseballNumberList = new ArrayList<>();
 
