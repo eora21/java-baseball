@@ -29,16 +29,13 @@ public class NumberBaseballController {
     }
 
     private void playGame(BaseballNumber randomBaseballNumber) {
-        while (true) {
+        do {
             output.requireBaseballNumber();
             BaseballNumber userBaseballNumber = BaseballNumber.createUserPick(input.baseballNumber());
             Map<PlayRule, Integer> result = referee.judge(randomBaseballNumber, userBaseballNumber);
             output.gameResult(result);
 
-            if (result.getOrDefault(PlayRule.STRIKE, DEFAULT_VALUE) == NumberRule.LENGTH.getValue()) {
-                break;
-            }
-        }
+        } while (!referee.isPerfect());
     }
 
     private boolean isContinue() {
